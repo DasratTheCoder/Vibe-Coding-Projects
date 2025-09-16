@@ -1,0 +1,256 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #ffffff;
+  --panel: #f9f9f9;
+  --border: #e5e5e5;
+  --text: #111111;
+  --muted: #666666;
+  --primary: #2563eb;
+  --low: #16a34a;
+  --medium: #eab308;
+  --high: #dc2626;
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --panel: #2a2a2a;
+  --border: #3a3a3a;
+  --text: #f5f5f5;
+  --muted: #999999;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .3s, color .3s;
+}
+
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+
+.topbar h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.theme-toggle {
+  padding: .4rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .9rem;
+  background: transparent;
+  color: var(--text);
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.task-form .row,
+.filter-panel .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-bottom: .75rem;
+}
+
+.task-form input,
+.task-form select,
+.filter-panel input,
+.filter-panel select {
+  flex: 1;
+  padding: .6rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: .9rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.task-form button {
+  padding: .6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+#addBtn {
+  background: var(--primary);
+  color: #fff;
+}
+
+#addBtn:hover {
+  opacity: .9;
+}
+
+#cancelEdit {
+  background: var(--border);
+  color: var(--text);
+}
+
+#cancelEdit:hover {
+  background: #ccc;
+}
+
+.invisible {
+  display: none;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .75rem;
+  background: var(--bg);
+  transition: background .2s, transform .2s;
+}
+
+.task-item:hover {
+  background: var(--panel);
+  transform: translateY(-2px);
+}
+
+.task-item .left {
+  display: flex;
+  gap: .75rem;
+  flex: 1;
+}
+
+.task-item .toggle {
+  margin-top: .3rem;
+}
+
+.task-item .content {
+  flex: 1;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.title.completed {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.priority {
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.priority.low { color: var(--low); }
+.priority.medium { color: var(--medium); }
+.priority.high { color: var(--high); }
+
+.meta {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-top: .25rem;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.task-item .right {
+  display: flex;
+  gap: .5rem;
+}
+
+.task-item button {
+  padding: .4rem .8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: .85rem;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.task-item button:hover {
+  background: var(--border);
+}
+
+.stats {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+.footer {
+  text-align: center;
+  padding: .75rem;
+  font-size: .85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .task-form .row,
+  .filter-panel .row {
+    flex-direction: column;
+  }
+  .app{
+    background-color: black;
+  }
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .task-item .right {
+    margin-top: .5rem;
+  }
+}
